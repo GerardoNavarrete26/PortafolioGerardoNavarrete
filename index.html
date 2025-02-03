@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Gerardo Navarrete</title>
+    
+    <!-- Estilos y Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 
-    <!-- Header con navegación -->
-    <header class="text-white py-3 fixed-top">
+<body>
+
+    <!-- Fondo animado -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- 🔹 Header con navegación -->
+    <header class="text-white py-3 fixed-top" data-aos="fade-down">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="m-0">Gerardo Navarrete</h1>
             <nav>
                 <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about.html">Acerca de mí</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="projects.html">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="experience.html">Experiencia</a></li>
@@ -22,27 +31,79 @@
             </nav>
         </div>
     </header>
-<body>
 
-    <!-- Fondo animado -->
-    <canvas id="bgCanvas"></canvas>
-
-
-    <!-- Contenido Principal -->
+    <!-- 🔹 Contenido Principal -->
     <main class="container-fluid text-center" id="content">
-        <h2>Bienvenido a mi Portafolio</h2>
-        <p>Explora mi experiencia, proyectos y descarga mi CV.</p>
+        <section class="hero text-white py-5" data-aos="zoom-in">
+            <h2>Bienvenido a mi Portafolio</h2>
+            <p>Explora mi experiencia, proyectos y descarga mi CV.</p>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class=" text-white text-center py-3">
-        <p>Sígueme en mis redes:</p>
-        <a href="#" class="text-white mx-2">GitHub</a>
-        <a href="#" class="text-white mx-2">LinkedIn</a>
-    </footer>
+    <!-- 🔹 Sección "Acerca de Mí" -->
+    <section class="container text-center my-5" data-aos="fade-up">
+        <h2>Acerca de Mí</h2>
+        <p>Soy <strong>Gerardo Navarrete</strong>, un apasionado del desarrollo web y las tecnologías modernas. 
+            Me especializo en JavaScript y desarrollo Full Stack.</p>
+        <a href="about.html" class="btn btn-primary">Saber más</a>
+    </section>
 
+    <!-- 🔹 Sección "Tecnologías que Uso" -->
+    <section class="container text-center my-5" data-aos="fade-right">
+        <h2 class="fw-bold">Tecnologías que Uso</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-2">
+                <img src="html-5.png" alt="HTML" class="tech-icon">
+                <p>HTML</p>
+            </div>
+            <div class="col-md-2">
+                <img src="css-3.png" alt="CSS" class="tech-icon">
+                <p>CSS</p>
+            </div>
+            <div class="col-md-2">
+                <img src="js.png" alt="JavaScript" class="tech-icon">
+                <p>JavaScript</p>
+            </div>
+            <div class="col-md-2">
+                <img src="nodejs.png" alt="Node.js" class="tech-icon">
+                <p>Node.js</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 Sección "Contáctame" -->
+    <section class="container text-center my-5" data-aos="fade-right">
+        <h2>Contáctame</h2>
+        <p>Si te interesa colaborar, necesitas ayuda en un proyecto o tienes alguna pregunta, no dudes en escribirme.</p>
+        <a href="contacto.html" class="btn btn-success">Hablemos</a>
+    </section>
+
+    <!-- 🔹 Footer -->
+
+    <footer class="text-white text-center py-3">
+        <p>Sígueme en mis redes :</p>
+        <div class="row justify-content-center">
+            <div class="col-md-2">
+                <a href="https://github.com/GerardoNavarrete26" target="_blank">
+                    <img src="github.png" alt="GitHub" class="clickable-icon">
+                </a>
+                <p>github</p>
+            </div>
+            <div class="col-md-2">
+                <a href="https://www.linkedin.com/in/gerardo-jareth-navarrete-navarrete-84b349213/" target="_blank" class="text-white mx-3">
+                    <img src="linkedin.png" alt="GitHub" class="clickable-icon">
+                </a>
+                <p>Linkedin</p>
+            </div>
+         </div>
+    </footer>
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <script src="bg-animation.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
