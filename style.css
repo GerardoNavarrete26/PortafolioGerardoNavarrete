@@ -1,44 +1,118 @@
-/* Fondo del sitio - Azul espacial */
+/* 🔹 Fondo del sitio - Azul espacial */
 body {
     background: linear-gradient(135deg, #0a0a2a, #1a1a40);
     color: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* Evita scroll horizontal en móviles */
 }
 
-
+/* 🔹 Espaciado para evitar superposición con el header */
 main {
-    margin-top: 120px !important;
-    padding-bottom: 100px !important;
+    margin-top: 120px;
+    padding-bottom: 100px;
     flex: 1;
 }
 
-
-/* Header y Footer con transparencia y efecto vidrio */
-header, footer {
-    background: rgba(1, 1, 17, 0.8); /* Azul espacial oscuro translúcido */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+/* 🔹 Header y Navbar */
+header {
+    background: rgba(1, 1, 17, 0.8);
+    backdrop-filter: blur(10px);
     color: white;
-    border-bottom: none;
+    padding: 15px 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-/* Estilo de los links del navbar */
-.nav-link {
-    color: white !important;
-    transition: color 0.3s ease-in-out;
+/* 🔹 Navbar estilo normal en pantallas grandes */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(1, 1, 17, 0.9);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.nav-link:hover {
-    color: #FFD700 !important; /* Dorado brillante */
+/* 🔹 Menú de navegación normal (pantallas grandes) */
+.nav-menu {
+    display: flex;
+    gap: 20px;
 }
 
-/* Estilo de los botones */
+/* 🔹 Ocultar botón hamburguesa en pantallas grandes */
+.menu-toggle {
+    display: none;
+}
+
+/* 📱 Ajustes para móviles (menos de 900px) */
+@media (max-width: 899px) {
+    /* 🔹 Cambiar Navbar */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    /* 🔹 Ocultar el menú normal y hacer desplegable */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(1, 1, 17, 0.95);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    /* 🔹 Mostrar el menú cuando tenga la clase "active" */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* 🔹 Botón Hamburguesa */
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* 🔹 Links dentro del menú */
+    .nav-menu .nav-link {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .nav-menu .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+
+/* 🔹 Botones */
 .btn {
     background: linear-gradient(135deg, #1f1f7a, #3b3b98);
     color: white;
     border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     transition: all 0.3s ease-in-out;
+    border-radius: 8px;
 }
 
 .btn:hover {
@@ -46,24 +120,64 @@ header, footer {
     color: black;
 }
 
-/* Titulos con efecto de resplandor */
+/* 🔹 Titulos con efecto de resplandor */
 h1, h2 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
+/* 🔹 Footer Responsivo */
+/* 🔹 Reducir altura del footer */
 footer {
-    position: fixed !;
-    bottom: 0 !;
-    width: 100% !;
-    background: rgba(10, 10, 42, 0.9) !;
-    padding: 15px 0 !;
-    text-align: center !;
-    z-index: 1000 !;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 10, 42, 0.9);
+    padding: 8px 0; /* Reducido de 15px a 8px */
+    text-align: center;
+    z-index: 1000;
 }
 
+/* 🔹 Ajustar tamaño de los iconos para que ocupen menos espacio */
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
 
+/* 🔹 Reducir tamaño de iconos */
+.clickable-icon {
+    width: 30px; /* Antes era 40px */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
 
-/* Canvas del fondo de estrellas */
+.clickable-icon:hover {
+    transform: scale(1.1);
+}
+
+/* 📱 Ajuste para móviles */
+@media (max-width: 899px) {
+    .footer-icons {
+        gap: 10px; /* Reducir más el espacio entre iconos */
+    }
+
+    .clickable-icon {
+        width: 28px;
+    }
+
+    footer {
+        padding: 5px 0; /* Reducir aún más en móviles */
+    }
+}
+
+/* 🔹 Ocultar el footer cuando el menú hamburguesa está activo */
+.footer-hidden {
+    display: none !important;
+}
+
+/* 🔹 Fondo animado */
 #bgCanvas {
     position: fixed;
     top: 0;
@@ -73,23 +187,123 @@ footer {
     z-index: -1;
 }
 
+/* 🔹 Iconos de tecnologías */
 .tech-icon {
-    width: 60px;
+    width: 50px;
     transition: transform 0.3s ease-in-out;
 }
+
 .tech-icon:hover {
     transform: scale(1.2);
 }
+
+/* 🔹 Iconos clickeables (Redes Sociales) */
 .clickable-icon {
-    width: 30px; /* Ajusta el tamaño */
+    width: 30px;
     height: auto;
-    cursor: pointer; /* Indica que es clickeable */
+    cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
 
 .clickable-icon:hover {
-    transform: scale(1.2); /* Hace que la imagen crezca al pasar el mouse */
+    transform: scale(1.2);
 }
+
+/* 🔹 Contenedor del CV */
 .content-cv {
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔹 PDF Viewer Responsivo */
+.pdf-viewer {
+    width: 100%;
+    max-width: 900px;
+    height: 80vh;
+    border: none;
+}
+
+/* 🔹 Estilos Responsivos */
+
+/* 🖥️ PC (pantallas grandes) */
+@media (min-width: 1200px) {
+    .nav-link {
+        font-size: 18px;
+    }
+
+    .pdf-viewer {
+        height: 85vh;
+    }
+}
+
+/* 💻 Notebook */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .tech-icon {
+        width: 45px;
+    }
+
+    .pdf-viewer {
+        height: 75vh;
+    }
+}
+
+/* 📱 Ajustes para móviles (menores a 800px) */
+@media (max-width: 799px) {
+    /* 🔹 NAVBAR: Convertir en Menú Hamburguesa */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: rgba(1, 1, 17, 0.95);
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .navbar .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* 🔹 Botón Hamburguesa */
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* 🔹 Ajustar el Footer */
+    footer {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    .clickable-icon {
+        width: 25px;
+        margin: 5px;
+    }
 }
