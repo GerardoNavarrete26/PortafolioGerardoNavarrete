@@ -90,3 +90,6 @@ footer {
 .clickable-icon:hover {
     transform: scale(1.2); /* Hace que la imagen crezca al pasar el mouse */
 }
+.content-cv {
+    padding-top: 50px;
+}
