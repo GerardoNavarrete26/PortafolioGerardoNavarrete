@@ -81,7 +81,7 @@ footer {
     transform: scale(1.2);
 }
 .clickable-icon {
-    width: 60px; /* Ajusta el tamaño */
+    width: 30px; /* Ajusta el tamaño */
     height: auto;
     cursor: pointer; /* Indica que es clickeable */
     transition: transform 0.3s ease-in-out;

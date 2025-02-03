@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🌠 Imagen de estrella fugaz
     const shootingStarImg = new Image();
-    shootingStarImg.src = "shooting-star.png"; // Asegúrate de que esta imagen existe
+    shootingStarImg.src = "assets/shooting-star.png"; // Asegúrate de que esta imagen existe
 
     let shootingStars = [];
 
