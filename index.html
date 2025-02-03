@@ -7,31 +7,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
     <!-- Header con navegación -->
-    <header class="bg-primary text-white py-3 fixed-top">
+    <header class="text-white py-3 fixed-top">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="m-0">Gerardo Navarrete</h1>
             <nav>
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadSection('about.html')">Acerca de mí</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadSection('projects.html')">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadSection('experience.html')">Experiencia</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadSection('cv.html')">CV</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about.html">Acerca de mí</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="projects.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="experience.html">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="cv.html">CV</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+<body>
 
-    <!-- Contenido Principal con fondo animado -->
+    <!-- Fondo animado -->
+    <canvas id="bgCanvas"></canvas>
+
+
+    <!-- Contenido Principal -->
     <main class="container-fluid text-center" id="content">
         <h2>Bienvenido a mi Portafolio</h2>
         <p>Explora mi experiencia, proyectos y descarga mi CV.</p>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white text-center py-3">
+    <footer class=" text-white text-center py-3">
         <p>Sígueme en mis redes:</p>
         <a href="#" class="text-white mx-2">GitHub</a>
         <a href="#" class="text-white mx-2">LinkedIn</a>

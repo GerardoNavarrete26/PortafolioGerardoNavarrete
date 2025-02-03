@@ -1,0 +1,64 @@
+/* Fondo del sitio - Azul espacial */
+body {
+    background: linear-gradient(135deg, #0a0a2a, #1a1a40);
+    color: white;
+}
+
+
+/* Header y Footer con transparencia y efecto vidrio */
+header, footer {
+    background: rgba(1, 1, 17, 0.8); /* Azul espacial oscuro translúcido */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    color: white;
+    border-bottom: none;
+}
+
+/* Estilo de los links del navbar */
+.nav-link {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #FFD700 !important; /* Dorado brillante */
+}
+
+/* Estilo de los botones */
+.btn {
+    background: linear-gradient(135deg, #1f1f7a, #3b3b98);
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #FFD700, #ffcc00);
+    color: black;
+}
+
+/* Titulos con efecto de resplandor */
+h1, h2 {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Footer con separación */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+main {
+    margin-top: 120px !important;
+    padding-bottom: 100px !important;
+}
+
+/* Canvas del fondo de estrellas */
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
