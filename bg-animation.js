@@ -57,50 +57,45 @@ document.addEventListener("DOMContentLoaded", function () {
     shootingStarImg.src = "assets/shooting-star.png"; // Asegúrate de que esta imagen existe
 
     let shootingStars = [];
+    const maxShootingStars = 3; // Máximo de estrellas fugaces activas
 
     function createShootingStar() {
-        let startX = -150; // Comienza fuera de la pantalla
-        let startY = Math.random() * (canvas.height / 2); // Posición aleatoria en la parte superior
-        let speed = Math.random() * 10 + 5; // Velocidad más alta
-        let size = Math.random() * 120 + 80; // Tamaño ajustado
-        let angle = Math.random() * 15 - 10; // Variación en el ángulo
+        if (shootingStars.length >= maxShootingStars) return; // Evita crear demasiadas al mismo tiempo
+
+        let startX = Math.random() * (canvas.width * 0.3); // Empieza en el 30% superior izquierdo
+        let startY = Math.random() * (canvas.height * 0.3);
+        let speed = Math.random() * 6 + 4; // Velocidad más estable
+        let size = Math.random() * 120 + 80; // Tamaño más grande para más impacto
+        let speedX = speed * 1.5; // Movimiento en X más rápido
+        let speedY = speed * 0.8; // Movimiento en Y más controlado
+        let lifetime = Math.random() * 2000 + 4000; // Siempre dura entre 4s y 6s
 
         shootingStars.push({
             x: startX,
             y: startY,
-            speedX: speed,
-            speedY: speed / 3, // Movimiento diagonal
+            speedX: speedX,
+            speedY: speedY,
             size: size,
-            angle: angle,
-            alpha: 1
+            alpha: 1,
+            lifetime: Date.now() + lifetime // Guarda el tiempo de eliminación
         });
-
-        // Ajustamos el tiempo de eliminación para asegurarnos de que llegue al final de la pantalla
-        setTimeout(() => {
-            shootingStars.shift();
-        }, 5000); // Dura 5 segundos en cruzar la pantalla
     }
 
     function drawShootingStars() {
         shootingStars.forEach(star => {
             ctx.globalAlpha = star.alpha;
-            ctx.save();
-            ctx.translate(star.x, star.y);
-            ctx.rotate((star.angle * Math.PI) / 180);
-            ctx.drawImage(shootingStarImg, 0, 0, star.size, star.size / 3);
-            ctx.restore();
+            ctx.drawImage(shootingStarImg, star.x, star.y, star.size, star.size / 3);
         });
     }
 
     function updateShootingStars() {
+        let now = Date.now();
+        shootingStars = shootingStars.filter(star => now < star.lifetime); // Elimina solo cuando pasa su lifetime
+
         shootingStars.forEach(star => {
             star.x += star.speedX;
             star.y += star.speedY;
-            star.alpha -= 0.005; // Se desvanece gradualmente
-
-            if (star.alpha <= 0) {
-                shootingStars.shift();
-            }
+            star.alpha -= 0.004;
         });
     }
 
@@ -116,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     createStars();
     animate();
 
-    // Generar estrellas fugaces con más frecuencia y duración
+    // Generar estrellas fugaces de forma controlada
     setInterval(() => {
         createShootingStar();
-    }, Math.random() * 3000 + 1500); // Aparecen cada 1.5s - 3s
+    }, Math.random() * 4000 + 3000); // Siempre se generan cada 3s a 4s de manera equilibrada
 });
